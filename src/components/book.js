@@ -1,5 +1,8 @@
 
 import React, { useState ,useRef } from 'react';
+import { useNavigate } from "react-router-dom";
+import { ArrowBack } from "@mui/icons-material"; 
+import { UserButton } from '@clerk/clerk-react';
 import { useLocation } from 'react-router-dom';
 import { FaUser, FaMapMarkerAlt, FaCar, FaIdCard, FaCalendarAlt, FaDollarSign, FaStar, FaComment } from 'react-icons/fa';
 import { motion } from 'framer-motion';
@@ -54,9 +57,13 @@ const BookPage = () => {
       [name]: value,
     }));
   };
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate("/home"); 
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-
     toast.current.show({
       severity: 'success',
       summary: 'Booking Successful',
@@ -64,32 +71,6 @@ const BookPage = () => {
       life: 3000, 
     });
   };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const response = await fetch('/send-booking-email', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify(formData),
-  //     });
-  //     if (response.ok) {
-  //       const data = await response.json(); 
-  //       if (data.success) {
-  //         alert('Booking request sent successfully! Please check your email.');
-  //       } else {
-  //         alert('Failed to send booking request.');
-  //       }
-  //     } else {
-  //       alert('Failed to send booking request. Please try again later.');
-  //     }
-  //   } catch (error) {
-  //     console.error('Error sending booking request:', error);
-  //     alert('Error sending booking request.');
-  //   }
-  // };
   if (!ride) {
     return <p>No ride information available.</p>;
   }
@@ -98,13 +79,17 @@ const BookPage = () => {
     <>
        <Toast ref = {toast}/>
       <nav className="navbar">
-        <div className="logo">RideShare</div>
+      <div className="navbar-left">
+        <button className="back-btn" onClick={handleBack}>
+          <ArrowBack />
+        </button>
+        <div className="logo">ShareRide</div>
+      </div>
         <ul className="nav-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/profile">Profile</a></li>
+          <li><a href="/home">Home</a></li>
+          <UserButton />
         </ul>
       </nav>
-
       <div className="main-content">
         <div className="book-page-container">
           <motion.div

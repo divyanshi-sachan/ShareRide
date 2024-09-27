@@ -1,5 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; 
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { UserButton } from '@clerk/clerk-react';
 import Select from 'react-select';
 import { motion } from 'framer-motion';  
@@ -7,6 +10,10 @@ import RideCard from './RideCard';
 import './home.css';
 
 const Home = () => {
+  const navigate = useNavigate();
+  const handleBackClick = () => {
+    navigate("/"); 
+  };
 
   const [cities, setCities] = useState([
     { value: 'Delhi', label: 'Delhi' },
@@ -304,6 +311,9 @@ const Home = () => {
     <div className="home-container">
       <nav className="navbar">
         <div className="navbar-left">
+        <button className="back-btn" onClick={handleBackClick}>
+            <FontAwesomeIcon icon={faArrowLeft} /> {/* Back arrow icon */}
+          </button>
           <span className="navbar-title">ShareRide</span>
         </div>
         <div className="navbar-right">

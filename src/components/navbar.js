@@ -1,8 +1,19 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; 
-import './navbar.css'; 
-
+import React from "react";
+import { Link,useNavigate } from "react-router-dom";
+import "./navbar.css";
+import {
+  SignedOut,
+  SignInButton,
+  UserButton,
+  SignedIn,
+  SignUpButton,
+} from "@clerk/clerk-react";
+// import { width } from "@mui/system";
 const Navbar = () => {
+  const navigate = useNavigate();
+  const handleRedirect = () => {
+    navigate("/home"); 
+  };
   return (
     <nav className="navbar">
       <div className="navbar-left">
@@ -14,12 +25,16 @@ const Navbar = () => {
         <h1 className="heading">ShareRide</h1>
       </div>
       <div className="navbar-right">
-        <Link to="/signup">
-          <button className="btn signup-btn">Sign Up</button>
-        </Link>
-        <Link to="/sign-in">
-          <button className="btn login-btn">Login</button>
-        </Link>
+        <SignedOut>
+          <SignInButton className="btn signup-btn"  afterSignInUrl="/home"/>
+          <SignUpButton className="btn login-btn" afterSignUpUrl = "/home"  />
+        </SignedOut>
+        <SignedIn>
+        <button className="home-btn" onClick={handleRedirect}>
+            Home
+        </button>
+          <UserButton />
+        </SignedIn>
       </div>
     </nav>
   );

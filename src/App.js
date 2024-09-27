@@ -12,14 +12,12 @@ import ContactPage from './components/ContactPage';
 import TermsAndConditionsPage from './components/Terms';
 import Error from './components/Error';
 const PUBLISHABLE_KEY = process.env.REACT_APP_CLERK_FRONTEND_API;
-
 if (!PUBLISHABLE_KEY) {
   throw new Error("Missing Publishable Key");
 }
-
 function App() {
   return (
-    <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
+    <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/" afterSignIntUrl="/home" >
       <Router>
         <Header />
         <ConditionalNavbar />
@@ -43,7 +41,6 @@ function ConditionalNavbar() {
   const location = useLocation();
   return location.pathname === '/' ? <Navbar /> : null;
 }
-
 function Header() {
   return (
     <header>
@@ -51,10 +48,14 @@ function Header() {
         <SignInButton />
       </SignedOut>
       <SignedIn>
-        <UserButton />
+        {/* <UserButton /> */}
       </SignedIn>
     </header>
   );
 }
 export default App;
+
+
+
+
 

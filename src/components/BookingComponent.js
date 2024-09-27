@@ -1,4 +1,3 @@
-// components/CreateNewRideForm.js
 import React, { useState } from 'react';
 
 const CreateNewRideForm = ({ onAddRide }) => {
@@ -14,12 +13,10 @@ const CreateNewRideForm = ({ onAddRide }) => {
     drivingLicenseImage: '',
     carImage: '',
   });
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setRideDetails({ ...rideDetails, [name]: value });
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     onAddRide(rideDetails);
@@ -36,7 +33,6 @@ const CreateNewRideForm = ({ onAddRide }) => {
       carImage: '',
     });
   };
-
   return (
     <form className="create-ride-form" onSubmit={handleSubmit}>
       <label>Name</label>
@@ -73,6 +69,5 @@ const CreateNewRideForm = ({ onAddRide }) => {
     </form>
   );
 };
-
 export default CreateNewRideForm;
 

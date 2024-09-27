@@ -198,3 +198,51 @@ body, html {
     color: black;
 
 }
+@media (max-width: 768px) {
+    .carpool-heading {
+      font-size: 2rem;
+    }
+    
+    .grid-item img {
+      height: 200px;
+    }
+    
+    .why-carpool-cards, .how-carpool-cards {
+      flex-direction: column;
+    }
+  
+    .card {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  @media (max-width: 480px) {
+    .carpool-heading {
+      font-size: 1.8rem;
+    }
+  
+    .carpool-description {
+      font-size: 1rem;
+    }
+  
+    .grid-item img {
+      height: 150px;
+    }
+  
+    .why-heading, .grid-heading {
+      font-size: 1.5rem;
+    }
+  
+    .how-it-works-section h2, .why-heading {
+      font-size: 1.8rem;
+    }
+  
+    .footer-content {
+      padding: 10px;
+      text-align: center;
+    }
+    
+    .social-icons a {
+      margin: 0 5px;
+    }
+  }

@@ -33,6 +33,7 @@ const Carpool = () => {
     cssEase: 'linear',
     pauseOnHover: false,
   };
+  
 
   return (
     <div className="carpool-container">
@@ -106,7 +107,6 @@ const Carpool = () => {
             <a href="/about">About Us</a>
             <a href="/contact">Contact</a>
             <a href="/terms">Terms of Service</a>
-            {/* <a href="/privacy">Privacy Policy</a> */}
           </div>
         </div>
         <div className="social-icons">
