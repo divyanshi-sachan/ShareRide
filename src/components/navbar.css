@@ -1,6 +1,4 @@
-/* navbar.css */
-
-.navbar {
+/* .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,7 +28,148 @@
 
 .navbar-right {
   display: flex;
-  gap: 10px;
+  gap: 20px;
+}
+.user-btn {
+  margin-left: 40px; 
+}
+.btn {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.signup-btn {
+  background-color: white;
+  color: black;
+}
+
+.signup-btn:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+
+.login-btn {
+  background-color: #333;
+  color: white;
+}
+
+.login-btn:hover {
+  background-color: #555;
+  transform: scale(1.05);
+}
+.home-btn-icon {
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.home-btn-icon:hover {
+  color: #f0f0f0;
+  transform: scale(1.1);
+}
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 8px; 
+    width: 100%; 
+  }
+
+  .logo {
+    width: 40px; 
+  }
+
+  .heading {
+    font-size: 1.5rem; 
+  }
+
+  .navbar-right {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .btn {
+    padding: 6px 12px; 
+    font-size: 0.9rem;
+  }
+
+  .home-btn-icon {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 480px) {
+  .navbar {
+    padding: 6px; 
+    height: 50px;
+  }
+
+  .logo {
+    width: 30px; 
+  }
+
+  .heading {
+    font-size: 1.2rem;
+  }
+
+  .navbar-right {
+    gap: 5px;
+  }
+
+  .btn {
+    padding: 5px 10px; 
+    font-size: 0.8rem;
+  }
+
+  .home-btn-icon {
+    font-size: 1rem;
+  }
+
+  .user-btn {
+    margin-left: 5px;
+  }
+} */
+ /* navbar.css */
+
+
+
+
+/* .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+  border: 2px solid white;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .btn {
@@ -57,28 +196,39 @@
   background-color: #333;
   color: white;
 }
-.home-btn{
-  background-color: white;
-  color: black;
-}
-.home-btn:hover{
-  background-color: #f0f0f0;
-  transform: scale(1.05);
-}
 
 .login-btn:hover {
   background-color: #555;
   transform: scale(1.05);
 }
+
+.home-btn-icon {
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.home-btn-icon:hover {
+  color: #f0f0f0;
+  transform: scale(1.1);
+}
+
+.user-btn {
+  margin-left: 10px;
+}
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
     align-items: center;
-    padding: 15px;
+    padding: 8px; 
+    width: 100%; 
   }
 
-  .navbar-left {
-    margin-bottom: 10px;
+  .logo {
+    width: 40px; 
   }
 
   .heading {
@@ -86,22 +236,27 @@
   }
 
   .navbar-right {
-    flex-direction: column;
-    gap: 5px;
+    flex-direction: row; 
+    gap: 8px;
   }
 
   .btn {
-    padding: 8px 16px;
+    padding: 6px 12px;
     font-size: 0.9rem;
+  }
+
+  .home-btn-icon {
+    font-size: 1.2rem; 
   }
 }
 @media (max-width: 480px) {
   .navbar {
-    padding: 10px;
+    padding: 6px; 
+    height: 50px; 
   }
 
   .logo {
-    width: 40px;
+    width: 30px;
   }
 
   .heading {
@@ -113,9 +268,117 @@
   }
 
   .btn {
-    width: 100%;
-    text-align: center;
-    padding: 10px;
-    font-size: 0.85rem;
+    padding: 5px 10px; 
+    font-size: 0.8rem;
+  }
+
+  .home-btn-icon {
+    font-size: 1rem; 
+  }
+
+  .user-btn {
+    margin-left: 5px; 
+  }
+} */
+/* navbar.css */
+
+/* General navbar styling */
+/* General navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Separate logo and right-side buttons */
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10; /* Ensure navbar stays on top */
+  height: 70px; /* Set a fixed height */
+  max-width: 100%; /* Ensure the navbar does not overflow horizontally */
+}
+
+/* Left section: Logo and heading */
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+  height: auto;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Right section: Home and User buttons */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Push the buttons to the right */
+  gap: 20px; /* Space between home and user buttons */
+}
+
+.home-btn-icon, .user-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.home-btn-icon:hover, .user-btn:hover {
+  color: #ddd;
+}
+
+/* Responsive adjustments for smaller devices */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 8px 15px;
+    height: 60px; /* Smaller height for small screens */
+  }
+
+  .logo {
+    width: 40px; /* Smaller logo */
+  }
+
+  .heading {
+    font-size: 1.2rem; /* Reduce heading font size */
+  }
+
+  .navbar-right {
+    gap: 10px; /* Reduce space between buttons */
+  }
+
+  .home-btn-icon, .user-btn {
+    font-size: 1.3rem; /* Adjust icon size */
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 6px 10px;
+    height: 50px; /* Even smaller height for very small screens */
+  }
+
+  .logo {
+    width: 30px; /* Further reduce logo size */
+  }
+
+  .heading {
+    font-size: 1rem;
+  }
+
+  .navbar-right {
+    gap: 8px;
+  }
+
+  .home-btn-icon, .user-btn {
+    font-size: 1.1rem;
   }
 }

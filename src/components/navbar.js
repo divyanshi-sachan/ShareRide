@@ -1,4 +1,5 @@
 import React from "react";
+import { AiOutlineHome } from 'react-icons/ai'; 
 import { Link,useNavigate } from "react-router-dom";
 import "./navbar.css";
 import {
@@ -31,9 +32,10 @@ const Navbar = () => {
         </SignedOut>
         <SignedIn>
         <button className="home-btn" onClick={handleRedirect}>
-            Home
+        <AiOutlineHome size={25} /> 
+            {/* Home */}
         </button>
-          <UserButton />
+          <UserButton className="user-btn" />
         </SignedIn>
       </div>
     </nav>
